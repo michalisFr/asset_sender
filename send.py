@@ -23,7 +23,7 @@ def transfer_ed(keypair, dest):
 
         call = substrate.compose_call(
             call_module='Balances',
-            call_function='transfer',
+            call_function='transfer_keep_alive',
             call_params={
                 'dest': dest,
                 'value': EXISTENTIAL_DEPOSIT
@@ -44,7 +44,7 @@ def transfer_asset(keypair, asset_id, dest, amount):
 
         call = substrate.compose_call(
             call_module='Assets',
-            call_function='transfer',
+            call_function='transfer_keep_alive',
             call_params={
                 'id': asset_id,
                 'target': dest,
@@ -66,7 +66,7 @@ def check_if_valid_address(addr):
     try:
         temp_call = substrate.compose_call(
             call_module='Balances',
-            call_function='transfer',
+            call_function='transfer_keep_alive',
             call_params={
                 'dest': addr,
                 'value': EXISTENTIAL_DEPOSIT
@@ -85,7 +85,7 @@ def batch_send_eds(keypair, dest_list):
         for dest in dest_list:
             call = substrate.compose_call(
                 call_module='Balances',
-                call_function='transfer',
+                call_function='transfer_keep_alive',
                 call_params={
                     'dest': dest,
                     'value': EXISTENTIAL_DEPOSIT
@@ -120,7 +120,7 @@ def batch_send_assets(keypair, asset_id, dest_list, amount):
         for dest in dest_list:
             call = substrate.compose_call(
                 call_module='Assets',
-                call_function='transfer',
+                call_function='transfer_keep_alive',
                 call_params={
                     'id': asset_id,
                     'target': dest,
