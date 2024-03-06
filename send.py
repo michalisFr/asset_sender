@@ -6,13 +6,13 @@ from substrateinterface.exceptions import SubstrateRequestException
 # Note that this is in Plancks.
 # The Statemine ED is 1/10th that of the Kusama ED, the same is true for statemint on Polkadot.
 EXISTENTIAL_DEPOSIT = 3333333
-NODE_WSS = "wss://statemine-rpc.polkadot.io"
+NODE_WSS = "wss://kusama-asset-hub-rpc.polkadot.io"
 for i in sys.argv:
     # Signal to use statemint on Polkadot P or Statemine on Kusama
     if i == "-P":
         sys.argv.remove("-P")
         EXISTENTIAL_DEPOSIT = 10_000_000_00
-        NODE_WSS = "wss://statemint-rpc.polkadot.io"
+        NODE_WSS = "wss://polkadot-asset-hub-rpc.polkadot.io"
 
 print(EXISTENTIAL_DEPOSIT)
 print(NODE_WSS)
